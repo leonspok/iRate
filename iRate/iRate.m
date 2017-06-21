@@ -87,7 +87,6 @@ static NSString *const iRateiOSAppStoreURLScheme = @"itms-apps";
 static NSString *const iRateiOSAppStoreURLFormat = @"itms-apps://itunes.apple.com/app/id%@?action=write-review";
 static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.com/app/id%@?action=write-review";
 
-
 #define SECONDS_IN_A_DAY 86400.0
 #define SECONDS_IN_A_WEEK 604800.0
 #define MAC_APP_STORE_REFRESH_DELAY 5.0
@@ -892,10 +891,12 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
             }
             else
             {
+				
+#if TARGET_OS_IOS
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
+				
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.messageTitle
                                                                 message:message
                                                                delegate:(id<UIAlertViewDelegate>)self
@@ -918,6 +919,9 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                 [self.visibleAlert show];
             }
         }
+
+#endif
+		
 #else
 
         //only show when main window is available

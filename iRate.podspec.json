@@ -14,6 +14,7 @@
   "requires_arc": true,
   "platforms": {
     "ios": "7.0",
-    "osx": "10.9"
+    "osx": "10.9",
+    "tvos": "9.0"
   }
 }
